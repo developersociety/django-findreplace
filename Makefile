@@ -107,13 +107,10 @@ pip-install-local: venv-check
 
 
 # ISort
-isort-version:
-	isort --version
-
-isort-lint: isort-version
+isort-lint:
 	isort --recursive --check-only --diff findreplace tests
 
-isort-format: isort-version
+isort-format:
 	isort --recursive findreplace tests
 
 
