@@ -14,7 +14,7 @@ setup(
     description='Django Find Replace',
     long_description=readme,
     url='https://github.com/developersociety/django-findreplace',
-    maintainer='Developer Society',
+    maintainer='The Developer Society',
     maintainer_email='studio@dev.ngo',
     platforms=['any'],
     packages=find_packages(exclude=['tests']),
