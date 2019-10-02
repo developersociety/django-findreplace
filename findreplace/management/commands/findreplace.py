@@ -1,10 +1,6 @@
-from __future__ import unicode_literals
-
 from django.apps import apps
 from django.core.management.base import BaseCommand
 from django.db import models
-
-from django.utils.six.moves import input  # isort:skip
 
 
 class Command(BaseCommand):

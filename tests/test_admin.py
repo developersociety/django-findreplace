@@ -1,4 +1,4 @@
-from __future__ import unicode_literals
+from unittest import mock
 
 from django.core.management import call_command
 from django.test import TestCase
@@ -7,11 +7,6 @@ from django.utils.six import StringIO
 from findreplace.management.commands.findreplace import Command
 
 from .models import Author
-
-try:
-    from unittest import mock
-except ImportError:
-    import mock
 
 
 class TestFindReplaceCommand(TestCase):
@@ -48,7 +43,7 @@ class TestFindReplaceCommand(TestCase):
 
         self.assertEqual(Author.objects.filter(url__startswith="https://").count(), 1)
 
-    @mock.patch("findreplace.management.commands.findreplace.input")
+    @mock.patch("builtins.input")
     def test_command_cancelled(self, mock_input):
         Author.objects.create(name="Alice", url="http://www.example.org/")
 
