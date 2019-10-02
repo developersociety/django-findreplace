@@ -1,9 +1,12 @@
-# Python
-*.py[co]
+*.pyc
+MANIFEST
+dist
+build
+*.egg-info
 
-# Testing
+# Tox
+.tox/
 .coverage
 .coverage.*
-.tox
-htmlcov
-reports
+coverage.xml
+htmlcov/
