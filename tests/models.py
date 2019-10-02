@@ -8,7 +8,7 @@ from django.utils.encoding import python_2_unicode_compatible
 class Author(models.Model):
     name = models.CharField(max_length=100)
     slug = models.SlugField(max_length=100)
-    url = models.URLField('URL')
+    url = models.URLField("URL")
     notes = models.TextField()
     published = models.BooleanField(default=True)
 
