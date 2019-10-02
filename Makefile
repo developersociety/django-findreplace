@@ -43,11 +43,11 @@ test: django-test
 test-report: ## Run and report on unit and integration tests.
 test-report: coverage-clean test coverage-report
 
-release: ## Package and release this project to PyPi.
-release: clean build-release
-
 dist: ## Builds source and wheel package
 dist: clean build-dist
+
+release: ## Package and release this project to PyPI.
+release: dist build-release
 
 
 # ---------------
@@ -59,25 +59,23 @@ dist: clean build-dist
 
 # Build
 build-clean:
-	rm -fr build/
-	rm -fr dist/
-	rm -fr .eggs/
-	find . -name '*.egg-info' -exec rm -fr {} +
-	find . -name '*.egg' -exec rm -f {} +
+	rm -rf build
+	rm -rf dist
+	rm -rf .eggs
+	find . -maxdepth 1 -name '*.egg-info' -exec rm -rf {} +
 
 build-release:
 	@echo
-	@echo "This will package and release this project to PyPi."
+	@echo "This will package and release this project to PyPI."
 	@echo
 	@echo "A checklist before you continue:"
 	@echo
-	@echo " - have you ran 'versionbump'?"
-	@echo " - have you pushed the commit and tag created by 'versionbump'?"
+	@echo " - have you ran 'bumpversion'?"
+	@echo " - have you pushed the commit and tag created by 'bumpversion'?"
 	@echo " - are you sure the project is in a state to be released?"
 	@echo
 	@read -p "Press <enter> to continue. Or <ctrl>-c to quit and address the above points."
-	python setup.py sdist upload
-	python setup.py bdist_wheel upload
+	twine upload dist/*
 
 build-dist:
 	python setup.py sdist
@@ -92,7 +90,7 @@ ifndef VIRTUAL_ENV
 endif
 
 venv-wipe: venv-check
-	if ! pip list --format=freeze | grep -v "^appdirs=\|^distribute=\|^packaging=\|^pip=\|^pyparsing=\|^setuptools=\|^six=\|^wheel=" | xargs pip uninstall -y; then \
+	if ! pip list --format=freeze | grep -v "^pip=\|^setuptools=\|^wheel=" | xargs pip uninstall -y; then \
 	    echo "Nothing to remove"; \
 	fi
 
@@ -134,7 +132,7 @@ coverage-xml:
 
 coverage-clean:
 	rm -rf htmlcov
-	rm -rf reports
+	rm -f coverage.xml
 	rm -f .coverage
 
 
