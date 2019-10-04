@@ -11,7 +11,7 @@ def read(filename):
 
 setup(
     name="django-findreplace",
-    version="0.1a1",
+    version="0.1",
     description="Django Find Replace",
     long_description=read("README.rst"),
     long_description_content_type="text/x-rst",
