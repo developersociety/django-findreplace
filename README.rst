@@ -23,7 +23,7 @@ Edit your Django project's settings module, and add the application to ``INSTALL
 
     INSTALLED_APPS = [
         # ...
-        'findreplace',
+        "findreplace",
         # ...
     ]
 
