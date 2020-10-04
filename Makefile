@@ -138,10 +138,10 @@ coverage-clean:
 
 # Black
 black-lint:
-	black --line-length 99 --target-version py34 --exclude '/migrations/' --check findreplace tests setup.py
+	black --line-length 99 --target-version py35 --exclude '/migrations/' --check findreplace tests setup.py
 
 black-format:
-	black --line-length 99 --target-version py34 --exclude '/migrations/' findreplace tests setup.py
+	black --line-length 99 --target-version py35 --exclude '/migrations/' findreplace tests setup.py
 
 
 #pipdeptree
