@@ -1,8 +1,8 @@
+from io import StringIO
 from unittest import mock
 
 from django.core.management import call_command
 from django.test import TestCase
-from django.utils.six import StringIO
 
 from findreplace.management.commands.findreplace import Command
 
