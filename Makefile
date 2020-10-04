@@ -11,7 +11,7 @@ SHELL=/bin/bash
 
 
 # -------------------------------
-# Common targets for Dev projects
+# Common targets for DEV projects
 # -------------------------------
 #
 # Edit these targets so they work as expected on the current project.
@@ -156,4 +156,4 @@ django-test:
 
 # Help
 help-display:
-	@awk '/^[[:alnum:]-]*: ##/ { split($$0, x, "##"); printf "%20s%s\n", x[1], x[2]; }' $(MAKEFILE_LIST)
+	@awk '/^[\-[:alnum:]]*: ##/ { split($$0, x, "##"); printf "%20s%s\n", x[1], x[2]; }' $(MAKEFILE_LIST)
