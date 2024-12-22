@@ -32,10 +32,10 @@ check: ## Check for any obvious errors in the project's setup.
 check: pipdeptree-check
 
 format: ## Run this project's code formatters.
-format: black-format isort-format
+format: ruff-format
 
 lint: ## Lint the project.
-lint: black-lint isort-lint flake8-lint
+lint: ruff-lint
 
 test: ## Run unit and integration tests.
 test: django-test
@@ -104,19 +104,6 @@ pip-install-local: venv-check
 	pip install -r requirements/local.txt
 
 
-# ISort
-isort-lint:
-	isort --recursive --check-only --diff findreplace tests
-
-isort-format:
-	isort --recursive findreplace tests
-
-
-# Flake8
-flake8-lint:
-	flake8 findreplace
-
-
 # Coverage
 coverage-report: coverage-combine coverage-html coverage-xml
 	coverage report --show-missing
@@ -136,12 +123,14 @@ coverage-clean:
 	rm -f .coverage
 
 
-# Black
-black-lint:
-	black --line-length 99 --target-version py36 --exclude '/migrations/' --check findreplace tests setup.py
+# ruff
+ruff-lint:
+	ruff check
+	ruff format --check
 
-black-format:
-	black --line-length 99 --target-version py36 --exclude '/migrations/' findreplace tests setup.py
+ruff-format:
+	ruff check --fix-only
+	ruff format
 
 
 #pipdeptree

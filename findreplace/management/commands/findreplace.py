@@ -40,7 +40,7 @@ class Command(BaseCommand):
     def find_replace(self, field, find, replace):
         updated_count = 0
         model = field.model
-        filter_kwargs = {"{}__contains".format(field.name): find}
+        filter_kwargs = {f"{field.name}__contains": find}
 
         # To avoid signals at all costs, we have to:
         # - Use values_list to avoid pre/post init
