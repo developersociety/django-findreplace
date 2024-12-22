@@ -3,3 +3,4 @@ check-wheel-contents==0.6.1
 coverage==7.6.9
 pipdeptree==2.24.0
 ruff==0.8.4
+twine==6.0.1
