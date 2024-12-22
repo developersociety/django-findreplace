@@ -1,6 +1,6 @@
 [project]
 name = 'django-findreplace'
-version = '0.1'
+version = '0.2'
 description = 'Django Find Replace'
 readme = 'README.md'
 maintainers = [{ name = 'The Developer Society', email = 'studio@dev.ngo' }]
