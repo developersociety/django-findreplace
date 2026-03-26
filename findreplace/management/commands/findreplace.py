@@ -65,6 +65,6 @@ class Command(BaseCommand):
             for model in app.get_models():
                 for field in model._meta.get_fields():
                     if isinstance(field, models.CharField | models.TextField):
-                        fields.append(field)
+                        fields.append(field)  # noqa:PERF401
 
         return fields
