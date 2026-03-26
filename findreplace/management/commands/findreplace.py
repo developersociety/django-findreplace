@@ -64,7 +64,7 @@ class Command(BaseCommand):
         for app in apps.get_app_configs():
             for model in app.get_models():
                 for field in model._meta.get_fields():
-                    if isinstance(field, (models.CharField, models.TextField)):
+                    if isinstance(field, models.CharField | models.TextField):
                         fields.append(field)
 
         return fields
